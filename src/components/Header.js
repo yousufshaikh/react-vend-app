@@ -26,7 +26,7 @@ const Header = () => {
     return(
         <div className="container">
             <div className="row">
-                <div className="col-lg-12 col-sm-6">
+                <div className="col-lg-12">
                     <div className="pull-left">
                         <div className="pull-left">
                             <a title="Market Place - Sell and Buy on Market Place"><img src={logo} style={logoStyle} alt="market place logo"/></a>
