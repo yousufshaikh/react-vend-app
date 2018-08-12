@@ -17,6 +17,12 @@ const Header = () => {
     const navbarBtnsMargin={
         margin: '24px 0'
     }
+    const lstItmMrg = {
+        margin: '5px'
+    }
+    const homeBtn = {
+        fontSize: '18px'
+    }
     return(
         <div className="container">
             <div className="row">
@@ -29,8 +35,8 @@ const Header = () => {
                     </div>
                     <div className="pull-right" style={navbarBtnsMargin}>
                         <ul className="nav navbar-nav">
-                            <li className="nav-item"><button className="btn btn-default"><i class="fa fa-user"></i> My Account</button></li>
-                            <li className="nav-item"><button className="btn btn-warning">Submit an Ad</button></li>
+                            <li className="nav-item" style={lstItmMrg}><button className="btn btn-default" style={homeBtn}><i class="fa fa-user"></i> <strong>My Account</strong> </button></li>
+                            <li className="nav-item" style={lstItmMrg}><button className="btn btn-warning" style={homeBtn}> <strong>Submit an Ad</strong> </button></li>
                         </ul>
                     </div>
                 </div>
