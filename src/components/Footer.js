@@ -46,7 +46,25 @@ const Footer = (props) => {
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <h1>Hello Two</h1>
+                        <h4><strong>Contact Us</strong></h4>
+                        <div className="contactUsWrapper">
+                            <div className="email">
+                                <i className="fa fa-envelope-o"></i> &nbsp;
+                                <a>help@olx.com.pk</a>
+                            </div>
+                            <div className="phone">
+                                <i className="fa fa-phone"></i> &nbsp;
+                                <strong>080010101</strong> <br/>
+                                <small>(9:30am to 6:30pm)</small>
+                            </div>
+                            <div className="business-package"> 
+                            <i className="fa fa-building-o"></i> &nbsp;
+                            <strong>Business Packages</strong> <br/>
+                            <small>(featured ads, advertising)</small>
+                            <br/>
+                            <a>click here</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
