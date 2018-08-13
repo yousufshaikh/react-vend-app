@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../images/olx-logo.png'
 
 
-const Header = () => {
+const Header = (props) => {
     const logoStyle = {
         width: '92px',
         height: '92px'
