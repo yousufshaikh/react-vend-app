@@ -3,11 +3,8 @@ import logo from '../images/olx-logo.png'
 import '../styles/footer.css'
 
 const Footer = (props) => {
-    const footerContainer ={
-        borderTop: '2px solid #eee'
-    }
     return(
-        <div style={footerContainer}>
+        <div className="footerContainer">
             <div className="container containerWrapper">
                 <div className="row">
                     <div className="col-lg-8">

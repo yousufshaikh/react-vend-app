@@ -8,3 +8,6 @@
     width: 92px;
     height: 92px;
 }
+.footerContainer{
+    border-top: 2px solid #eee;
+}
