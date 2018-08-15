@@ -1,14 +1,15 @@
 import React from 'react'
 import SocialMedia from './SocialMedia';
+import ClassifiedList from './ClassifiedList';
 
 const HomeCategories = (props) => {
     return(
         <div className="container">
             <div className="row">
                 <div className="col-lg-7">
-                    <h1>Categories</h1>
+                    <ClassifiedList/>
                 </div>
-                <div className="col-lg-5 pull-right">
+                <div className="col-lg-5">
                     <SocialMedia/>
                 </div>
             </div>
