@@ -1,27 +1,18 @@
 import React from 'react'
 import logo from '../images/olx-logo.png'
+import '../styles/footer.css'
 
 const Footer = (props) => {
     const footerContainer ={
         borderTop: '2px solid #eee'
     }
-    const logoStyle = {
-        width: '92px',
-        height: '92px'
-    }
-    const containerWrapper = {
-        marginTop: '30px'
-    }
-    const unOrderList = {
-        listStyle: 'none'
-    }
     return(
         <div style={footerContainer}>
-            <div className="container" style={containerWrapper}>
+            <div className="container containerWrapper">
                 <div className="row">
                     <div className="col-lg-8">
                         <div className="pull-left">
-                            <img src={logo} style={logoStyle} alt="OLX.com.pk - OLX Pakistan"/>
+                            <img src={logo} className="logoStyle" alt="OLX.com.pk - OLX Pakistan"/>
                         </div>
                         <div className="pull-left">
                             <ul className="unOrderList">
