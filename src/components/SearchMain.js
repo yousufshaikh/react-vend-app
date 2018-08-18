@@ -10,7 +10,7 @@ const SearchMain = (props) => {
                         <fieldset>
                             <div className="pull-left"><input className="city-field" placeholder="Pakistan" type="text"/></div>
                             <div className="pull-left"><input className="query-field" placeholder="36,31,933 Ads near you" type="text"/></div>
-                            <div className="pull-right"><button>Search</button></div>
+                            <div className="pull-right"><input type="button" value="Submit" className="btn btn-primary btn-lg mrg-btn" /></div>
                         </fieldset>
                     </form>
                 </div>
