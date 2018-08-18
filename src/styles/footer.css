@@ -10,4 +10,8 @@
 }
 .footerContainer{
     border-top: 2px solid #eee;
+    margin-top: 30px;
+}
+.contactUsWrapper{
+    margin-left: 10px;
 }
