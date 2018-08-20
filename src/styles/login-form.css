@@ -1,0 +1,16 @@
+.login-form-grid{
+    width: 533px;
+    margin: 0 auto;
+}
+.login-style{
+    font-size: 15px;
+    font-weight: 200;
+    color: #626262;
+    margin-bottom: 10px;
+}
+.login-box{
+    border: 1px solid #e3e3e3;
+    padding: 5px 0px 10px;
+    background: #fff;
+    border-radius: 4px;
+}

@@ -4,6 +4,7 @@ import Header from './components/Header';
 import HomeCategories from './components/HomeCategories';
 import Footer from './components/Footer';
 import SearchMain from './components/SearchMain';
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <SearchMain/>
         <HomeCategories/>
         <Footer/>
+        <LoginForm/>
       </div>
     );
   }
