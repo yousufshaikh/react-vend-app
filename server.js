@@ -1,15 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser')
-const path = require('path');
-const app = express();
-app.use(express.static(path.join(__dirname, 'build')));
+const express = require('express')
+const app = express()
 
-app.get('/ping', function (req, res) {
- return res.send('pong');
-});
+app.use(express.static('build'));
+app.set('views', './build');
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+app.get('*', (req, res) => res.sendFile(`${process.cwd()}/build/index.html`))
 
-app.listen(process.env.PORT || 8080);
+app.listen(2400, () => console.log('Example app listening on port 2400!'))
