@@ -10,8 +10,22 @@ const LoginForm = () => {
                         <h2 className="login-style">Login</h2>
                         <div className="login-box">
                             <div className="login-form-inner">
-                                <form action="">
-                                    
+                                <form>
+                                    <div>
+                                        <label className="pull-left label-form">Your Email</label>
+                                            <div className="input-box-div">
+                                                <input type="text" className="input-box"/>
+                                            </div>
+                                    </div>
+                                    <div>
+                                        <label className="pull-left label-form">Password</label>
+                                            <div className="input-box-div">
+                                                <input type="password" className="input-box"/>
+                                            </div>
+                                    </div>
+                                    <div className="login-btn-div">
+                                        <input type="button" value="Log in" className="btn btn-lg btn-primary login-btn"/>
+                                    </div>
                                 </form>
                             </div>
                         </div>

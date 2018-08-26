@@ -14,3 +14,36 @@
     background: #fff;
     border-radius: 4px;
 }
+.login-form-inner{
+    padding: 0px 20px;
+    margin-top: 25px;
+    text-align: center
+}
+.label-form{
+    width: 103px;
+    padding: 10px;
+}
+.input-box{
+    width: 264px;
+    background-color: #fff;
+    border: 1px solid #818080;
+    border-right-color: #efede8;
+    border-bottom-color: #efede8;
+    padding: 5px 7px;
+    border-radius: 0;
+}
+.input-box-div{
+    padding: 10px;
+}
+.login-btn-div{
+    background-color: #f3f3f3;
+    padding: 14px 0px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 30px;
+
+}
+.login-btn{
+    padding-right:36px;
+    padding-left: 36px;
+}
