@@ -32,7 +32,7 @@ const SignupForm = () => {
                                     <div>
                                         <input type="checkbox" className="input-checkbox"/>
                                         <div>
-                                            <p className="terms-and-conditions">By registering on OLX, you accept our OLX.com.pk Terms of Use.</p>
+                                            <p className="terms-and-conditions">By registering on OLX, you accept our OLX Terms of Use.</p>
                                         </div>
                                     </div>
                                     <div className="signup-btn-div">

@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../images/olx-logo.png'
+import {Link} from 'react-router-dom'
 
 
 const Header = (props) => {
@@ -35,8 +36,8 @@ const Header = (props) => {
                     </div>
                     <div className="pull-right" style={navbarBtnsMargin}>
                         <ul className="nav navbar-nav">
-                            <li className="nav-item" style={lstItmMrg}><button className="btn btn-default" style={homeBtn}><i class="fa fa-user"></i> <strong>My Account</strong> </button></li>
-                            <li className="nav-item" style={lstItmMrg}><button className="btn btn-warning" style={homeBtn}> <strong>Submit an Ad</strong> </button></li>
+                            <li className="nav-item" style={lstItmMrg}><Link to="/login" className="btn btn-default" style={homeBtn}><i className="fa fa-user"></i> <strong>My Account</strong></Link></li>
+                            <li className="nav-item" style={lstItmMrg}><Link to="/login" className="btn btn-warning" style={homeBtn}><strong>Submit an Ad</strong></Link></li>
                         </ul>
                     </div>
                 </div>
