@@ -7,7 +7,7 @@ const LoginForm = () => {
             <div className="row">
                 <div className="col-lg-12">
                     <div className="login-form-grid">
-                        <h2 className="login-style">Login</h2>
+                        <h2 className="login-style"><strong>Log In</strong></h2>
                         <div className="login-box">
                             <div className="login-form-inner">
                                 <form>
