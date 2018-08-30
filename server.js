@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-app.use('/signin', signIn);
+app.use('/user', signIn);
 
 // app.use(express.static('build'));
 // app.set('views', '/build');
