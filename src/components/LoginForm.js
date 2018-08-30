@@ -28,7 +28,7 @@ const LoginForm = () => {
                                         <input type="button" value="Log in" className="btn btn-lg btn-primary login-btn"/>
                                     </div>
                                     <div className="create-your-account">
-                                        <p>Don't have an account? <Link to="/register">create your account</Link> </p>
+                                        <p>Don't have an account? <Link to="/user-register">create your account</Link> </p>
                                     </div>
                                 </form>
                             </div>

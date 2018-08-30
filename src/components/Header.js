@@ -30,14 +30,14 @@ const Header = (props) => {
                 <div className="col-lg-12">
                     <div className="pull-left">
                         <div className="pull-left">
-                            <a title="Market Place - Sell and Buy on Market Place"><img src={logo} style={logoStyle} alt="market place logo"/></a>
+                            <a title="Market Place - Sell and Buy on Market Place" href="/"><img src={logo} style={logoStyle} alt="market place logo"/></a>
                         </div>
-                        <span className="pull-right" style={plm}>Pakistan's Largest Marketplace</span> 
+                        <span className="pull-right" style={plm}>Pakistan's Largest Marketplace</span>
                     </div>
                     <div className="pull-right" style={navbarBtnsMargin}>
                         <ul className="nav navbar-nav">
-                            <li className="nav-item" style={lstItmMrg}><Link to="/login" className="btn btn-default" style={homeBtn}><i className="fa fa-user"></i> <strong>My Account</strong></Link></li>
-                            <li className="nav-item" style={lstItmMrg}><Link to="/login" className="btn btn-warning" style={homeBtn}><strong>Submit an Ad</strong></Link></li>
+                            <li className="nav-item" style={lstItmMrg}><Link to="/user-login" className="btn btn-default" style={homeBtn}><i className="fa fa-user"></i> <strong>My Account</strong></Link></li>
+                            <li className="nav-item" style={lstItmMrg}><Link to="/user-login" className="btn btn-warning" style={homeBtn}><strong>Submit an Ad</strong></Link></li>
                         </ul>
                     </div>
                 </div>

@@ -23,8 +23,8 @@ class App extends Component {
                 </div>
                 }>
             </Route>
-            <Route path="/register" component={SignupForm}></Route>
-            <Route path='/login' component={LoginForm}></Route>
+            <Route path="/user-register" component={SignupForm}></Route>
+            <Route path='/user-login' component={LoginForm}></Route>
             <Route component={NotFound}></Route>
           </Switch>
           <Footer/>
