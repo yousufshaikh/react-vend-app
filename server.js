@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const User = require('./models/User');
+const UserSession = require('./models/UserSession');
+const signIn = require('./routes/Signin');
 
 mongoose.connect('mongodb://localhost:27017/user_login', {useNewUrlParser:true});
 mongoose.connection.on('error', function(error){
@@ -16,9 +19,7 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-app.get('/', function(req, res){
-	res.send("Hello World");
-});
+app.use('/signin', signIn);
 
 // app.use(express.static('build'));
 // app.set('views', '/build');
