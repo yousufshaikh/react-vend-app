@@ -8,7 +8,7 @@ const signIn = require('./routes/Signin');
 const signUp = require('./routes/Signup');
 const logOut = require('./routes/Logout');
 
-mongoose.connect('mongodb://localhost:27017/user_login', {useNewUrlParser:true});
+mongoose.connect('mongodb://localhost:27017/users_accounts', {useNewUrlParser:true});
 mongoose.connection.on('error', function(error){
 	console.log("error", error)
 });
