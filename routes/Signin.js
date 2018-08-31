@@ -9,34 +9,34 @@ router.get('/signin', function(req, res){
 })
 
 router.post('/signin', function(req, res, next){
-    const { body } = req;
+    // const { body } = req;
 
-    const {
-        password
-    } = body;
+    // const {
+    //     password
+    // } = body;
 
-    let {
-        email
-    } = body;
+    // let {
+    //     email
+    // } = body;
 
 
-    if(!email){
+    if(!req.body.email){
         return res.send({
             success: false,
             message: "Error: email field can't be blank"
         });
     }
-    if(!password){
+    if(!req.body.password){
         return res.send({
             success: false,
             message: "Error: password field can't be blank"
         });
     }
 
-    email = email.toLowerCase();
+    email = req.body.email.toLowerCase();
 
     User.find({
-        email: email
+        email: req.body.email
     },(err, users)=>{
         if(err){
             return res.send({
@@ -52,10 +52,10 @@ router.post('/signin', function(req, res, next){
         }
 
         const user = users[0];
-        if(!user.validPassword(password)){
+        if(!user.validPassword(req.body.password)){
             return res.send({
                 success: false,
-                message: 'Error: Invalid'
+                message: 'Error: Invalid Password'
             });
         }
 

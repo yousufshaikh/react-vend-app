@@ -59,9 +59,10 @@ router.post('/signup', function(req, res, next){
                 message: "Error: Server Error"
             });
         }else if (previousUsers.length > 0 ){
+            console.log(previousUsers.length)
             return res.send({
                 success: false,
-                message: "Error: Account already exist"
+                message: "Error: Email already exist"
             });
         }
 
@@ -82,7 +83,7 @@ router.post('/signup', function(req, res, next){
             else if(user){
                 return res.send({
                     success: true,
-                    message: "Signed Up"
+                    message: "You are welcome, Signed Up"
                 });
             }
         });
