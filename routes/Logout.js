@@ -11,7 +11,7 @@ router.put("/logout", function(req, res, next){
         if(error){
             return res.send({success: false, message: "Error: Server error"});
         }
-            return res.send({success: true, message: 'UserSession is deleted to true'});
+            return res.send({success: true, message: 'UserSession isDeleted to true'});
     });
 });
 

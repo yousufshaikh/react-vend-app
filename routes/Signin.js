@@ -38,6 +38,7 @@ router.post('/signin', function(req, res, next){
     User.find({
         email: req.body.email
     },(err, users)=>{
+        // console.log(users);
         if(err){
             return res.send({
                 success: false,
@@ -45,6 +46,8 @@ router.post('/signin', function(req, res, next){
             });
         }
         if(users.length != 1){
+            // console.log(users);
+            // console.log(users.length);
             return res.send({
                 success: false,
                 message: 'Error: Invalid'
