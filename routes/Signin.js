@@ -44,11 +44,11 @@ router.post('/signin', function(req, res, next){
                 message: 'Error: Server error'
             });
         }
-        else if(users.length != 1){
+        if(users.length != 1){
             return res.send({
                 success: false,
                 message: 'Error: Invalid'
-            })
+            });
         }
 
         const user = users[0];
@@ -56,7 +56,7 @@ router.post('/signin', function(req, res, next){
             return res.send({
                 success: false,
                 message: 'Error: Invalid'
-            })
+            });
         }
 
         // authentic user
@@ -75,9 +75,9 @@ router.post('/signin', function(req, res, next){
                     success: true,
                     message: 'Valid sign in',
                     token: doc._id
-                })
+                });
             }
-        })
+        });
 
     });
 });
