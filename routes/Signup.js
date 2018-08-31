@@ -59,7 +59,6 @@ router.post('/signup', function(req, res, next){
                 message: "Error: Server Error"
             });
         }else if (previousUsers.length > 0 ){
-            console.log(previousUsers.length)
             return res.send({
                 success: false,
                 message: "Error: Email already exist"
