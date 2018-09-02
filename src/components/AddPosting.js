@@ -54,6 +54,8 @@ const AddPosting = (props) =>{
                                     </div>
                                 </div>
                             </div>
+                            <hr/>
+                            
                         </form>
                     </div>
                 </div>
