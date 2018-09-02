@@ -8,6 +8,7 @@ import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import NotFound from './components/NotFound';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import AddPosting from './components/AddPosting';
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route component={NotFound}></Route>
           </Switch>
           <Footer/>
+          <AddPosting/>
       </div>
       </BrowserRouter>
     );
