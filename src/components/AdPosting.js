@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/add-posting.css'
 
-const AddPosting = (props) =>{
+const AdPosting = (props) =>{
     return(
         <div className="container">
             <div className="row">
@@ -87,4 +87,4 @@ const AddPosting = (props) =>{
     );
 }
 
-export default AddPosting;
+export default AdPosting;

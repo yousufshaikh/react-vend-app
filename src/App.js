@@ -8,9 +8,10 @@ import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
 import NotFound from './components/NotFound';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import AddPosting from './components/AddPosting';
+import AdPosting from './components/AdPosting';
 
 class App extends Component {
+  state = {name: 'Yousuf'}
   render() {
     return (
       <BrowserRouter>
@@ -24,12 +25,12 @@ class App extends Component {
                 </div>
                 }>
             </Route>
-            <Route path="/user-register" component={SignupForm}></Route>
-            <Route path='/user-login' component={LoginForm}></Route>
+            <Route path="/user-register" render={props => <div><SignupForm/></div>}></Route>
+            <Route path='/user-login' render={props => <div><LoginForm/></div>}></Route>
             <Route component={NotFound}></Route>
           </Switch>
           <Footer/>
-          <AddPosting/>
+          <AdPosting/>
       </div>
       </BrowserRouter>
     );
