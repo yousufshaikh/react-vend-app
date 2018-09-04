@@ -9,9 +9,42 @@ import SignupForm from './components/SignupForm';
 import NotFound from './components/NotFound';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import AdPosting from './components/AdPosting';
+// import {getFromStorage, setInStorage} from './utils/storage'
 
 class App extends Component {
-  state = {name: 'Yousuf'}
+  state = {
+    isLoading: false,
+    name: "John",
+    token: '', 
+    signUpError: '', 
+    signInError: ''
+  }
+
+  // componentDidMount(){
+  //   const token = getFromStorage('the_main_app');
+  //   if(token){
+  //     fetch('/account/verify')
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       if(json.success){
+  //         this.setState({
+  //           token: token,
+  //           isLoading: false
+  //         });    
+  //       }
+  //       else{
+  //         this.setState({
+  //           isLoading: false
+  //         })
+  //       }
+  //     })
+  //   }else{
+  //     this.setState({
+  //       isLoading: false,
+  //     });
+  //   }
+  // }
+
   render() {
     return (
       <BrowserRouter>
@@ -21,7 +54,7 @@ class App extends Component {
             <Route path="/" exact render={props => 
                 <div>
                   <SearchMain/>
-                  <HomeCategories/>
+                  <HomeCategories myName={this.state.name} loading={this.state.isLoading}/>
                 </div>
                 }>
             </Route>

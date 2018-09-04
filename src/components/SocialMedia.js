@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/social-media.css'
 
-const SocialMedia = () => {
+const SocialMedia = (props) => {
     const followMrg ={
         margin: '0 10px'
     }

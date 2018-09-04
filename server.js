@@ -7,6 +7,7 @@ const UserSession = require('./models/UserSession');
 const signIn = require('./routes/Signin');
 const signUp = require('./routes/Signup');
 const logOut = require('./routes/Logout');
+const verify = require('./routes/Verify');
 
 mongoose.connect('mongodb://localhost:27017/users_accounts', {useNewUrlParser:true});
 mongoose.connection.on('error', function(error){
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({
 app.use('/account', signIn);
 app.use('/account', signUp);
 app.use('/account', logOut);
+app.use('/account', verify);
 
 // app.use(express.static('build'));
 // app.set('views', '/build');
