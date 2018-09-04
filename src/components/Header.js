@@ -36,8 +36,8 @@ const Header = (props) => {
                     </div>
                     <div className="pull-right" style={navbarBtnsMargin}>
                         <ul className="nav navbar-nav">
-                            <li className="nav-item" style={lstItmMrg}><Link to="/user-login" className="btn btn-default" style={homeBtn}><i className="fa fa-user"></i> <strong>My Account</strong></Link></li>
-                            <li className="nav-item" style={lstItmMrg}><Link to="/user-login" className="btn btn-warning" style={homeBtn}><strong>Submit an Ad</strong></Link></li>
+                            <li className="nav-item" style={lstItmMrg}><Link to="/user-account" className="btn btn-default" style={homeBtn}><i className="fa fa-user"></i> <strong>My Account</strong></Link></li>
+                            <li className="nav-item" style={lstItmMrg}><Link to="/user-account" className="btn btn-warning" style={homeBtn}><strong>Submit an Ad</strong></Link></li>
                         </ul>
                     </div>
                 </div>

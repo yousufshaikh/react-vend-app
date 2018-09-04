@@ -8,7 +8,6 @@ const LoginForm = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-lg-12">
-                    <h1>{props.testing}</h1>
                     <div className="login-form-grid">
                         <h2 className="login-style"><strong>Log In</strong></h2>
                         <div className="login-box">

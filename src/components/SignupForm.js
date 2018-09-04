@@ -7,7 +7,6 @@ const SignupForm = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-lg-12">
-                <h1>{props.testing}</h1>
                     <div className="signup-form-grid">
                         <h2 className="signup-style"><strong>Create an account</strong></h2>
                         <div className="signup-box">
