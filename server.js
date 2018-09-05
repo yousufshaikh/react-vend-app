@@ -27,9 +27,9 @@ app.use('/account', signUp);
 app.use('/account', logOut);
 app.use('/account', verify);
 
-// app.use(express.static('build'));
-// app.set('views', '/build');
+app.use(express.static('build'));
+app.set('views', '/build');
 
-// app.get('*', (req, res) => res.sendFile(`${process.cwd()}/build/index.html`))
+app.get('*', (req, res) => res.sendFile(`${process.cwd()}/build/index.html`))
 
 app.listen(3001, () => console.log('Example app listening on port 3001!'));
