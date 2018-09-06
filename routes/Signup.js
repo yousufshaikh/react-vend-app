@@ -9,6 +9,8 @@ const User = require('../models/User');
 router.post('/signup', function(req, res, next){
     const { body } = req;
 
+    console.log('body', body);
+
     const {
         firstName,
         lastName,

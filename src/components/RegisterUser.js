@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/register-user.css';
-import {getFromStorage} from '../utils/storage';
+import {getFromStorage, setInStorage} from '../utils/storage';
+// import AdPosting from './AdPosting';
 
 class RegisterUser extends Component{
     state = {
@@ -24,12 +25,14 @@ class RegisterUser extends Component{
     onChangeTextBoxSignUpPassword = this.onChangeTextBoxSignUpPassword.bind(this)
     onSignIn = this.onSignIn.bind(this)
     onSignUp = this.onSignUp.bind(this)
+    onLogOut = this.onLogOut.bind(this)
 
     componentDidMount(){
-        const token = getFromStorage('the_main_app');
-        if(token){
+        const obj = getFromStorage('the_main_app');
+        if(obj && obj.token){
+            const {token}  = obj;
             // verify
-            fetch('/verify?token=' + token)
+            fetch('http://localhost:3001/account/verify?token=' + token)
             .then(res => res.json())
             .then(json => {
                 if(json.success){
@@ -100,8 +103,11 @@ class RegisterUser extends Component{
         })
         // POST request to backend
 
-        fetch('/signup', {
+        fetch('http://localhost:3001/account/signup', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
             body: JSON.stringify({
                 firstName: signUpFirstName,
                 lastName: signUpLastName,
@@ -110,6 +116,7 @@ class RegisterUser extends Component{
             }),
         }).then(res => res.json())
         .then(json => {
+            console.log('json', json);
             if (json.success) {
                 this.setState({
                     signUpError: json.message,
@@ -130,9 +137,78 @@ class RegisterUser extends Component{
         e.preventDefault();
     }
 
-    onSignIn(){
+    onSignIn(e){
         // Grab state
+        const {
+            signInEmail,
+            signInPassword
+        } = this.state;
+
+        this.setState({
+            isLoading: true
+        })
         // POST request to backend
+
+        fetch('http://localhost:3001/account/signin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify({
+                email: signInEmail,
+                password: signInPassword,
+            }),
+        }).then(res => res.json())
+        .then(json => {
+            console.log('json', json);
+            if (json.success) {
+                setInStorage('the_main_app', {token: json.token});
+                this.setState({
+                    signInError: json.message,
+                    isLoading: false,
+                    signInEmail: '',
+                    signInPassword: '',
+                    token: json.token,
+                });
+            }
+            else{
+                this.setState({
+                    signInError: json.message,
+                    isLoading: false
+                });
+            }
+        });
+        e.preventDefault();
+    }
+
+    onLogOut(){
+        this.setState({
+            isLoading: true
+        });
+        const obj = getFromStorage('the_main_app');
+        if(obj && obj.token){
+            const {token}  = obj;
+            // verify
+            fetch('http://localhost:3001/account/logout?token=' + token)
+            .then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                if(json.success){
+                    this.setState({
+                        token: '',
+                        isLoading: false
+                    });
+                }
+                else{
+                    this.setState({
+                        isLoading: false
+                    });
+                }
+            });
+        }
+        else{
+            this.setState({ isLoading: false })
+        }
     }
 
     render(){
@@ -265,6 +341,14 @@ class RegisterUser extends Component{
                             </div>
                         </div>
                     </div>                
+                </div>
+            );
+        }else{
+            return(
+                <div>
+                    {/* <AdPosting/> */}
+                    <p>Account</p>
+                    <button onClick={this.onLogOut}>Log out</button>
                 </div>
             );
         }

@@ -3,7 +3,7 @@ const router = express.Router();
 // const User = require('../models/User');
 const UserSession = require('../models/UserSession');
 
-router.put("/logout", function(req, res, next){
+router.get("/logout", function(req, res, next){
     // const {query} = req;
     // const {token} = query;
 

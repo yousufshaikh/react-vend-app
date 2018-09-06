@@ -1,5 +1,6 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const User = require('./models/User');
@@ -8,6 +9,8 @@ const signIn = require('./routes/Signin');
 const signUp = require('./routes/Signup');
 const logOut = require('./routes/Logout');
 const verify = require('./routes/Verify');
+
+app.use(cors())
 
 mongoose.connect('mongodb://localhost:27017/users_accounts', {useNewUrlParser:true});
 mongoose.connection.on('error', function(error){
