@@ -16,5 +16,3 @@ router.put("/logout", function(req, res, next){
 });
 
 module.exports = router;
- 
-// I am with Khizer

@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 
-router.get('/signup',function(req, res){
-    res.send('signup page works');
-});
+// router.get('/signup',function(req, res){
+//     res.send('signup page works');
+// });
 
 router.post('/signup', function(req, res, next){
     const { body } = req;

@@ -4,9 +4,9 @@ const User = require('../models/User');
 const UserSession = require('../models/UserSession');
 
  
-router.get('/signin', function(req, res){
-    res.send("This is signin page this is wonderful");
-})
+// router.get('/signin', function(req, res){
+//     res.send("This is signin page this is wonderful");
+// })
 
 router.post('/signin', function(req, res, next){
     // const { body } = req;

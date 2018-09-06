@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/register-user.css';
-import {getFromStorage, setInStorage} from '../utils/storage'
+import {getFromStorage} from '../utils/storage';
 
 class RegisterUser extends Component{
     state = {
@@ -22,12 +22,14 @@ class RegisterUser extends Component{
     onChangeTextBoxSignUpFirstName = this.onChangeTextBoxSignUpFirstName.bind(this)
     onChangeTextBoxSignUpLastName = this.onChangeTextBoxSignUpLastName.bind(this)
     onChangeTextBoxSignUpPassword = this.onChangeTextBoxSignUpPassword.bind(this)
+    onSignIn = this.onSignIn.bind(this)
+    onSignUp = this.onSignUp.bind(this)
 
     componentDidMount(){
         const token = getFromStorage('the_main_app');
         if(token){
             // verify
-            fetch('/account/verify?token=' + token)
+            fetch('/verify?token=' + token)
             .then(res => res.json())
             .then(json => {
                 if(json.success){
@@ -84,6 +86,55 @@ class RegisterUser extends Component{
         })
     }
 
+    onSignUp(e){
+        // Grab state
+        const {
+            signUpFirstName,
+            signUpLastName,
+            signUpEmail,
+            signUpPassword
+        } = this.state;
+
+        this.setState({
+            isLoading: true
+        })
+        // POST request to backend
+
+        fetch('/signup', {
+            method: 'POST',
+            body: JSON.stringify({
+                firstName: signUpFirstName,
+                lastName: signUpLastName,
+                email: signUpEmail,
+                password: signUpPassword,
+            }),
+        }).then(res => res.json())
+        .then(json => {
+            if (json.success) {
+                this.setState({
+                    signUpError: json.message,
+                    isLoading: false,
+                    signUpEmail: '',
+                    signUpPassword: '',
+                    signUpFirstName:'',
+                    signUpLastName: '',
+                });
+            }
+            else{
+                this.setState({
+                    signUpError: json.message,
+                    isLoading: false
+                });
+            }
+        });
+        e.preventDefault();
+    }
+
+    onSignIn(){
+        // Grab state
+        // POST request to backend
+    }
+
     render(){
         if (this.state.isLoading) {
             return(
@@ -109,17 +160,33 @@ class RegisterUser extends Component{
                                             <div>
                                                 <label className="pull-left label-form">Your Email</label>
                                                     <div className="input-box-div">
-                                                        <input type="text" className="input-box" placeholder="Your Email" value={this.state.signInEmail} onChange={this.onChangeTextBoxSignInEmail}/>
+                                                        <input 
+                                                        type="text" 
+                                                        className="input-box" 
+                                                        placeholder="Your Email" 
+                                                        value={this.state.signInEmail} 
+                                                        onChange={this.onChangeTextBoxSignInEmail}
+                                                        />
                                                     </div>
                                             </div>
                                             <div>
                                                 <label className="pull-left label-form">Password</label>
                                                     <div className="input-box-div">
-                                                        <input type="password" className="input-box" placeholder="Password" value={this.state.signInPassword}/>
+                                                        <input 
+                                                        type="password" 
+                                                        className="input-box" 
+                                                        placeholder="Password" 
+                                                        value={this.state.signInPassword} 
+                                                        onChange={this.onChangeTextBoxSignInPassword}
+                                                        />
                                                     </div>
                                             </div>
                                             <div className="login-btn-div">
-                                                <button className="btn btn-lg btn-primary login-btn">Log In</button>
+                                                <button 
+                                                onClick={this.onSignIn} 
+                                                className="btn btn-lg btn-primary login-btn">
+                                                Log In
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -128,6 +195,11 @@ class RegisterUser extends Component{
                         </div>
                         <div className="col-lg-6">
                             <div className="signup-form-grid">
+                            {
+                                    (this.state.signUpError) ? (
+                                        <p>{this.state.signUpError}</p>
+                                    ) : (null)
+                                }
                                 <h2 className="signup-style"><strong>Create an account</strong></h2>
                                 <div className="signup-box">
                                     <div className="signup-form-inner">
@@ -135,29 +207,57 @@ class RegisterUser extends Component{
                                             <div>
                                                 <label className="pull-left label-form">First Name</label>
                                                     <div className="input-box-div">
-                                                        <input type="text" className="input-box" placeholder="First Name" value={this.state.signUpFirstName}/>
+                                                        <input 
+                                                        type="text" 
+                                                        className="input-box" 
+                                                        placeholder="First Name" 
+                                                        value={this.state.signUpFirstName} 
+                                                        onChange={this.onChangeTextBoxSignUpFirstName}
+                                                        />
                                                     </div>
                                             </div>
                                             <div>
                                                 <label className="pull-left label-form">Last Name</label>
                                                     <div className="input-box-div">
-                                                        <input type="text" className="input-box" placeholder="Last Name" value={this.state.signUpLastName}/>
+                                                        <input 
+                                                        type="text" 
+                                                        className="input-box" 
+                                                        placeholder="Last Name" 
+                                                        value={this.state.signUpLastName} 
+                                                        onChange={this.onChangeTextBoxSignUpLastName}
+                                                        />
                                                     </div>
                                             </div>
                                             <div>
                                                 <label className="pull-left label-form">Email</label>
                                                     <div className="input-box-div">
-                                                        <input type="text" className="input-box" placeholder="Your Email" value={this.state.signUpEmail}/>
+                                                        <input 
+                                                        type="text" 
+                                                        className="input-box" 
+                                                        placeholder="Your Email" 
+                                                        value={this.state.signUpEmail} 
+                                                        onChange={this.onChangeTextBoxSignUpEmail}
+                                                        />
                                                     </div>
                                             </div>
                                             <div>
                                                 <label className="pull-left label-form">Password</label>
                                                     <div className="input-box-div">
-                                                        <input type="password" className="input-box" placeholder="Password" value={this.state.signUpPassword}/>
+                                                        <input 
+                                                        type="password" 
+                                                        className="input-box" 
+                                                        placeholder="Password" 
+                                                        value={this.state.signUpPassword} 
+                                                        onChange={this.onChangeTextBoxSignUpPassword}
+                                                        />
                                                     </div>
                                             </div>
                                             <div className="signup-btn-div">
-                                                <button className="btn btn-lg btn-primary signup-btn">Create Account</button>
+                                                <button 
+                                                onClick={this.onSignUp}
+                                                className="btn btn-lg btn-primary signup-btn">
+                                                Create Account
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
