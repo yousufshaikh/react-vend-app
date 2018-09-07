@@ -9,10 +9,11 @@ const signIn = require('./routes/Signin');
 const signUp = require('./routes/Signup');
 const logOut = require('./routes/Logout');
 const verify = require('./routes/Verify');
+const adPost = require('./routes/Post');
 
 app.use(cors())
 
-mongoose.connect('mongodb://localhost:27017/users_accounts', {useNewUrlParser:true});
+mongoose.connect('mongodb://localhost:27017/react_vend_app', {useNewUrlParser:true});
 mongoose.connection.on('error', function(error){
 	console.log("error", error)
 });
@@ -29,6 +30,7 @@ app.use('/account', signIn);
 app.use('/account', signUp);
 app.use('/account', logOut);
 app.use('/account', verify);
+app.use('/post',adPost);
 
 // app.get('/',function(req, res) {
 // 	res.send("App is running on localhost:3001");

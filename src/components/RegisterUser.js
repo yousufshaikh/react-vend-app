@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/register-user.css';
 import {getFromStorage, setInStorage} from '../utils/storage';
-// import AdPosting from './AdPosting';
+import AdPosting from './AdPosting';
 
 class RegisterUser extends Component{
     state = {
@@ -346,8 +346,7 @@ class RegisterUser extends Component{
         }else{
             return(
                 <div>
-                    {/* <AdPosting/> */}
-                    <p>Account</p>
+                    <AdPosting/>
                     <button onClick={this.onLogOut}>Log out</button>
                 </div>
             );
