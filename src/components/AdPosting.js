@@ -5,6 +5,7 @@ import '../styles/add-posting.css'
 
 class AdPosting extends Component{
     state = {
+        adPostError: '',
         title: '',
         category:'',
         model: '',
@@ -103,6 +104,7 @@ class AdPosting extends Component{
                     console.log('json', json)
                     if(json.success){
                         this.setState({
+                            adPostError: json.message,
                             title: '',
                             category: '',
                             model: '',
@@ -114,6 +116,11 @@ class AdPosting extends Component{
                             phoneNum: ''
                         })
                     }
+                    else{
+                        this.setState({
+                            adPostError: json.message
+                        });
+                    }
                 })
             e.preventDefault();
         }
@@ -124,6 +131,11 @@ class AdPosting extends Component{
             <div className="row">
                 <div className="col-lg-12">
                     <div className="post-ad-container">
+                    {
+                        (this.state.adPostError) ? (
+                            <strong><p>{this.state.adPostError}</p></strong>
+                            ) : (null)
+                    }
                         <h3>Post Your Ad</h3>
                         <form>
                             <div className="form-group"></div>
