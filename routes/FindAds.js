@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// const AdPost = require('../models/AdPost');
+const AdPost = require('../models/AdPost');
 
 router.get('/ads', function(req, res, next){
     console.log("Getting all the ads");

@@ -114,6 +114,7 @@ class Header extends Component{
                             <li className="nav-item" style={lstItmMrg}><Link to="/user-account" className="btn btn-default" style={homeBtn}><i className="fa fa-user"></i> <strong>My Account</strong></Link></li>
                             <li className="nav-item" style={lstItmMrg}><Link to="/user-account" className="btn btn-warning" style={homeBtn}><strong>Submit an Ad</strong></Link></li>
                             {/* <li className="nav-item" style={lstItmMrg} onClick={this.onLogOut}><Link to="/user-account" className="btn btn-warning" style={homeBtn}><strong>Logout</strong></Link></li> */}
+                            <li className="nav-item" style={lstItmMrg} ><Link className="btn btn-warning" style={homeBtn} to="/view-ads"><strong>View Ads</strong></Link></li>
                         </ul>
                     </div>
                 </div>
