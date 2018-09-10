@@ -345,9 +345,9 @@ class RegisterUser extends Component{
             );
         }else{
             return(
-                <div>
-                    <AdPosting/>
-                    <button onClick={this.onLogOut}>Log out</button>
+                <div className="container">
+                        <AdPosting/>
+                        <button className="btn btn-warning btn-lg" onClick={this.onLogOut}><strong>Log out</strong></button>
                 </div>
             );
         }

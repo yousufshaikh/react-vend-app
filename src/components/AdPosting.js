@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../styles/add-posting.css'
+// import { constants } from 'zlib';
 
 
 class AdPosting extends Component{
@@ -11,7 +12,7 @@ class AdPosting extends Component{
         price: '',
         description: '',
         sellerName: '',
-        city: '',
+        soldCity: '',
         phoneNum: ''
     }
         onChangeTitle = this.onChangeTitle.bind(this);
@@ -23,6 +24,7 @@ class AdPosting extends Component{
         onChangeSellerName = this.onChangeSellerName.bind(this);
         onChangeCity = this.onChangeCity.bind(this);
         onChangePhoneNum = this.onChangePhoneNum.bind(this);
+        onSubmitAd = this.onSubmitAd.bind(this);
 
         onChangeTitle(event){
             this.setState({
@@ -68,7 +70,7 @@ class AdPosting extends Component{
 
         onChangeCity(event){
             this.setState({
-                city: event.target.value,
+                soldCity: event.target.value,
             })
         }
 
@@ -76,6 +78,44 @@ class AdPosting extends Component{
             this.setState({
                 phoneNum: event.target.value,
             })
+        }
+
+        onSubmitAd(e){
+            console.log("testing onSubmitAd function");
+                fetch('http://localhost:3001/post/adpost',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify({
+                        title: this.state.title,
+                        category: this.state.category,
+                        model: this.state.model,
+                        condition: this.state.condition,
+                        price: this.state.price,
+                        description: this.state.description,
+                        sellerName: this.state.sellerName,
+                        soldCity: this.state.soldCity,
+                        phoneNum: this.state.phoneNum
+                      }),
+                }).then(res => res.json())
+                .then(json => {
+                    console.log('json', json)
+                    if(json.success){
+                        this.setState({
+                            title: '',
+                            category: '',
+                            model: '',
+                            condition: '',
+                            price: '',
+                            description: '',
+                            sellerName: '',
+                            soldCity: '',
+                            phoneNum: ''
+                        })
+                    }
+                })
+            e.preventDefault();
         }
 
     render(){
@@ -173,7 +213,7 @@ class AdPosting extends Component{
                                 <label>Item to be sold in which city? *</label>
                                 <input type="text" 
                                 className="form-control" 
-                                value={this.state.city}
+                                value={this.state.soldCity}
                                 onChange={this.onChangeCity}
                                 />
                             </div>
@@ -191,7 +231,7 @@ class AdPosting extends Component{
                                 </span>
                             </div>
                             <div className="form-group">
-                                <button className="btn btn-primary btn-lg">Submit Your Ad</button>
+                                <button className="btn btn-primary btn-lg" onClick={this.onSubmitAd}>Submit Your Ad</button>
                             </div>
                         </form>
                     </div>
