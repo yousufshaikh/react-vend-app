@@ -65,6 +65,7 @@ class ViewAds extends Component{
                                             <i class="fa fa-heart"></i>
                                         </button>
                                     </div>
+                                    <div className="clearfix"></div>
                                 </div>
                             </div>
                         </div>
