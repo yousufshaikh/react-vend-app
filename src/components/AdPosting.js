@@ -188,7 +188,7 @@ class AdPosting extends Component{
                                 onChange={this.onChangeDescription}>
                                 </textarea>
                             </div>
-                            {/* <div className="image-margin">
+                            <div className="image-margin">
                                 <div className="col-lg-4">
                                     <div className="form-group">
                                         <label>Image 1</label>
@@ -207,7 +207,7 @@ class AdPosting extends Component{
                                         <input type="file" className="form-control"/>
                                     </div>
                                 </div>
-                            </div> */}
+                            </div>
                             <span className="text-danger"></span>
                             <div className="divider"></div>
                             <div className="form-group">

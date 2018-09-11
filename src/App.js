@@ -33,6 +33,7 @@ class App extends Component {
           </Switch>
           <Footer/>
           {/* <AdPosting/> */}
+          <ViewAds/>
       </div>
       </BrowserRouter>
     );

@@ -7,7 +7,7 @@ import {getFromStorage} from '../utils/storage';
 class Header extends Component{
 
     state = {
-        isLoading: true,
+        isLoading: '',
         token: ''
     }
 

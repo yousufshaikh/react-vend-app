@@ -43,4 +43,4 @@ app.use('/adverts', findads);
 
 // app.get('*', (req, res) => res.sendFile(`${process.cwd()}/build/index.html`))
 
-app.listen(3001, () => console.log('Example app listening on port 3001!'));
+app.listen(3002, () => console.log('Example app listening on port 3002!'));
