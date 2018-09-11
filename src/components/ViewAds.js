@@ -1,3 +1,6 @@
+
+// ViewAds.js file show all the ads list
+
 import React, {Component} from 'react';
 import '../styles/view-ads.css';
 import img from '../images/download.jpeg'
@@ -38,8 +41,8 @@ class ViewAds extends Component{
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="">
-                                <h2>Display All Ads</h2>
-                                <h4>We found {18} items</h4>
+                                <h2>View Ads</h2>
+                                <h4>We found {18} ads</h4>
                             </div>
                         </div>
                     </div>
