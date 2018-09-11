@@ -11,6 +11,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 // import AdPosting from './components/AdPosting';
 import RegisterUser from './components/RegisterUser';
 import ViewAds from './components/ViewAds';
+import ViewAd from './components/ViewAd';
 // import {getFromStorage, setInStorage} from './utils/storage';
 
 class App extends Component {
@@ -33,7 +34,7 @@ class App extends Component {
           </Switch>
           <Footer/>
           {/* <AdPosting/> */}
-          <ViewAds/>
+          <ViewAd/>
       </div>
       </BrowserRouter>
     );
