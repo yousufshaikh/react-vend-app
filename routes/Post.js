@@ -61,7 +61,7 @@ router.post('/adpost', function(req, res, next){
 
 
     // create new post
-
+    
     const newPost = new AdPost();
     newPost.title = req.body.title;
     newPost.category = req.body.category;
