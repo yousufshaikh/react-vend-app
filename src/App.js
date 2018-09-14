@@ -30,11 +30,10 @@ class App extends Component {
             </Route>
             <Route path='/user-account' render={props => <div><RegisterUser/></div>}></Route>
             <Route path='/view-ads' render={props => <div><ViewAds/></div>} ></Route>
+            <Route path='/view-ad/:id' render={props => <div><ViewAd/></div>} ></Route>
             <Route component={NotFound}></Route>
           </Switch>
           <Footer/>
-          {/* <AdPosting/> */}
-          <ViewAd/>
       </div>
       </BrowserRouter>
     );

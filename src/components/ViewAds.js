@@ -2,6 +2,7 @@
 // ViewAds.js file show all the ads list
 
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import '../styles/view-ads.css';
 import img from '../images/download.jpeg'
 
@@ -14,14 +15,13 @@ class ViewAds extends Component{
     componentDidMount(){
         fetch('http://localhost:3001/adverts/ads')
         .then(res => res.json())
-        .then(json => {
+        .then((json) => {
             console.log('josn', json);
             this.setState({
                 isLoading: true,
                 ads: json,
             })
         })
-        
     }
     
 render(){
@@ -58,7 +58,7 @@ render(){
                                     </div>
                                     <div className="col-lg-9">
                                         <div className="item-title">
-                                            <h3><a href=""><h3>{ad.title}</h3></a></h3>
+                                            <h3><Link to={{pathname:'/view-ad/:id', search:ad._id}}><h3>{ad.title}</h3></Link></h3>
                                             <p><strong>Category: {ad.category}</strong></p>
                                             <div className="pull-left">
                                                 <p className="price">Rs: {ad.price}</p>
@@ -72,27 +72,7 @@ render(){
                                         </div>
                                     </div>
                                 </div>
-                            ))};
-                            {/* <div className="col-lg-12 back-view-ad">
-                                <div className="col-lg-3 single-img-container">
-                                    <a href=""><img className="img-fluid" src={img} alt="car"/></a>
-                                </div>
-                                <div className="col-lg-9">
-                                    <div className="item-title">
-                                        <h3><a href=""><h3>Ford car</h3></a></h3>
-                                        <p><strong>Category: Car</strong></p>
-                                        <div className="pull-left">
-                                            <p className="price">Rs: 400000</p>
-                                        </div>
-                                        <div className="pull-right">
-                                            <button className="btn btn-primary">
-                                                <i className="fa fa-heart"></i>
-                                            </button>
-                                        </div>
-                                        <div className="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div> */}
+                            ))};        
                         </div>
                     </div>
                 </div>
