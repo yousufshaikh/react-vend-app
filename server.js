@@ -10,7 +10,8 @@ const signUp = require('./routes/Signup');
 const logOut = require('./routes/Logout');
 const verify = require('./routes/Verify');
 const adPost = require('./routes/Post');
-const findads = require('./routes/FindAds');
+const findAds = require('./routes/FindAds');
+const findAd = require('./routes/FindAd');
 
 app.use(cors())
 
@@ -32,7 +33,8 @@ app.use('/account', signUp);
 app.use('/account', logOut);
 app.use('/account', verify);
 app.use('/post',adPost);
-app.use('/adverts', findads);
+app.use('/adverts', findAds);
+app.use('/adverts',findAd);
 
 // app.get('/',function(req, res) {
 // 	res.send("App is running on localhost:3001");

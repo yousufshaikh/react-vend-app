@@ -11,6 +11,7 @@ import books from '../images/books.png'
 import fashion from '../images/fashion.png'
 import pets from '../images/pets.png'
 import services from '../images/services.png'
+import {Link} from 'react-router-dom'
 
 const ClassifiedList = (props) => {
     return(
@@ -18,16 +19,14 @@ const ClassifiedList = (props) => {
             <tbody>
                 <tr>
                     <td className="text-center">
-                        <div >
-                            <a href="">
+                        <Link to={{pathname: '/view-category-ads'}}>
+                            <div>
                                 <img className="catigory-img" src={properties} alt="properties"/>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="">
+                            </div>
+                            <div>
                                 <span>Properties</span>
-                            </a>
-                        </div>
+                            </div>
+                        </Link>
                     </td>
                     <td className="text-center">
                         <div>

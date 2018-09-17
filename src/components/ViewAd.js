@@ -1,13 +1,24 @@
 import React, {Component} from 'react';
 import '../styles/view-ad.css';
 import car from '../images/car.jpg';
+import 'react-router-dom';
+import '../components/ViewAds';
 
 class ViewAd extends Component{
     state = {
-        ad: []
+        ad: [],
+        isLoading: false
     }
     componentDidMount(){
-        
+        fetch('http://localhost:3001/adverts/ad/'+ this.props.params)
+              .then(res => res.json())
+              .then((json) => {
+                  console.log('json', json);
+                  this.setState({
+                      isLoading: true,
+                      ad: json,
+                  })
+              })
     }
     render(){
         return(

@@ -147,13 +147,30 @@ class AdPosting extends Component{
                                 onChange={this.onChangeTitle}
                                 />
                             </div>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label>Category</label>
                                 <input type="text" 
                                 className="form-control" 
                                 value={this.state.category}
                                 onChange={this.onChangeCategory}
                                 />
+                            </div> */}
+                            <div className="form-group">
+                                <label>Category</label>
+                                <select value={this.state.category} onChange={this.onChangeCategory} className="form-control">
+                                    <option value="">Select category</option>
+                                    <option value="Properties">Properties</option>
+                                    <option value="Cars">Cars</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Jobs">Jobs</option>
+                                    <option value="Mobiles">Mobiles</option>
+                                    <option value="Bikes">Bikes</option>
+                                    <option value="Books">Books</option>
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Pets">Pets</option>
+                                    <option value="Services">Services</option>
+                                </select>
                             </div>
                             <div className="form-group">
                                 <label>Model</label>
@@ -163,13 +180,22 @@ class AdPosting extends Component{
                                 onChange={this.onChangeModel}
                                 />
                             </div>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label>Condition</label>
                                 <input type="text" 
                                 className="form-control" 
                                 value={this.state.condition}
                                 onChange={this.onChangeCondition}
                                 />
+                            </div> */}
+                            <div className="form-group">
+                                <label>Condition</label>
+                                <select value={this.state.condition} onChange={this.onChangeCondition} className="form-control">
+                                    <option value="">Select condition</option>
+                                    <option value="new">New</option>
+                                    <option value="old">Old</option>
+                                    <option value="used">Used</option>
+                                </select>
                             </div>
                             <div className="form-group">
                                 <label>Price</label>
