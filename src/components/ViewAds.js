@@ -58,7 +58,7 @@ render(){
                                     </div>
                                     <div className="col-lg-9">
                                         <div className="item-title">
-                                            <h3><Link to={{pathname:'/view-ad/:', search:ad._id, state: { fromViewAds: true }}}><h3>{ad.title}</h3></Link></h3>
+                                            <h3><Link to={{pathname:'/view-ad', search:ad._id, state: { fromViewAds: true }}}><h3>{ad.title}</h3></Link></h3>
                                             <p><strong>Category: {ad.category}</strong></p>
                                             <div className="pull-left">
                                                 <p className="price">Rs: {ad.price}</p>
