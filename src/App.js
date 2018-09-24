@@ -13,6 +13,7 @@ import RegisterUser from './components/RegisterUser';
 import ViewAds from './components/ViewAds';
 import ViewAd from './components/ViewAd';
 import ViewCategoryAds from './components/ViewCategoryAds';
+// import UserSummery from './components/UserSummery';
 // import {getFromStorage, setInStorage} from './utils/storage';
 
 class App extends Component {
@@ -36,6 +37,7 @@ class App extends Component {
             <Route component={NotFound}></Route>
           </Switch>
           <Footer/>
+          {/* <UserSummery/> */}
       </div>
       </BrowserRouter>
     );
