@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const AdPost = require('../models/AdPost');
+var multer  = require('multer');
+var upload = multer({ dest: 'uploads/' });
 
 router.post('/adpost', function(req, res, next){
 
