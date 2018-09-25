@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import '../styles/view-ads.css';
-import img from '../images/download.jpeg'
+// import img from '../images/download.jpeg'
 
 class ViewAds extends Component{
     state = {
@@ -54,7 +54,7 @@ render(){
                             {ads.map(ad => (
                                     <div className="col-lg-12 back-view-ad" key={ad._id}>
                                     <div className="col-lg-3 single-img-container">
-                                        <a href=""><img className="img-fluid" src={img} alt="car"/></a>
+                                        <a href=""><img className="img-fluid" src={ad.productImage} alt="img"/></a>
                                     </div>
                                     <div className="col-lg-9">
                                         <div className="item-title">

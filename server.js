@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+var multer  = require('multer');
 const User = require('./models/User');
 const UserSession = require('./models/UserSession');
 const signIn = require('./routes/Signin');

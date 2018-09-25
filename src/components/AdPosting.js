@@ -137,7 +137,7 @@ class AdPosting extends Component{
                             ) : (null)
                     }
                         <h3>Post Your Ad</h3>
-                        <form>
+                        <form enctype="multipart/form-data">
                             <div className="form-group"></div>
                             <div className="form-group">
                                 <label>Title</label>
@@ -221,7 +221,7 @@ class AdPosting extends Component{
                                         <input type="file" className="form-control"/>
                                     </div>
                                 </div>
-                                <div className="">
+                                {/* <div className="">
                                     <div className="form-group">
                                         <label>Image 2</label>
                                         <input type="file" className="form-control"/>
@@ -232,7 +232,7 @@ class AdPosting extends Component{
                                         <label>Image 3</label>
                                         <input type="file" className="form-control"/>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                             <span className="text-danger"></span>
                             <div className="divider"></div>
