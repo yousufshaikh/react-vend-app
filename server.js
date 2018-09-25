@@ -24,6 +24,7 @@ mongoose.connection.once('open', function(){
 	console.log("db connected")
 });
 
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true

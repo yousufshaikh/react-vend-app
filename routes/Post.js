@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 //     }
 // }
 
-var upload = multer({storage : storage, limits:{fileSize: 1024 * 1024 * 5}});
+var upload = multer({storage : storage}); // limits:{fileSize: 1024 * 1024 * 5}
 
 router.post('/adpost', upload.single('productImage') ,function(req, res, next){
     // console.log(req.file);
