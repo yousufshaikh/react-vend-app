@@ -39,10 +39,10 @@ const AdPostSchema = new Schema({
         type: Number,
         default:''
     },
-    productImage:{
-        type: String,
-        required: true
-    },
+    // productImage:{
+    //     type: String,
+    //     required: true
+    // },
     isDeleted: {
         type: Boolean,
         default: false

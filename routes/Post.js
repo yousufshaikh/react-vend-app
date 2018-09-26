@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 var upload = multer({storage : storage}); // limits:{fileSize: 1024 * 1024 * 5}
 
 router.post('/adpost', upload.single('productImage') ,function(req, res, next){
-    // console.log(req.file);
+    console.log(req.file);
 
     // if(!req.body.title){
     //     return res.send({
@@ -91,10 +91,10 @@ router.post('/adpost', upload.single('productImage') ,function(req, res, next){
     newPost.condition = req.body.condition;
     newPost.price = req.body.price;
     newPost.description = req.body.description;
-    newPost.productImage = req.file.path;
     newPost.sellerName = req.body.sellerName;
     newPost.soldCity = req.body.soldCity;
     newPost.phoneNum = req.body.phoneNum;
+    // newPost.productImage = req.file.path;
     newPost.save((err, post) => {
         if(err){
             return res.send({

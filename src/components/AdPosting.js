@@ -15,6 +15,7 @@ class AdPosting extends Component{
         sellerName: '',
         soldCity: '',
         phoneNum: '',
+        productImage: ''
     }
         onChangeTitle = this.onChangeTitle.bind(this);
         onChangeCategory = this.onChangeCategory.bind(this);
@@ -25,6 +26,7 @@ class AdPosting extends Component{
         onChangeSellerName = this.onChangeSellerName.bind(this);
         onChangeCity = this.onChangeCity.bind(this);
         onChangePhoneNum = this.onChangePhoneNum.bind(this);
+        onChangeProductImageOne = this.onChangeProductImageOne.bind(this);
         onSubmitAd = this.onSubmitAd.bind(this);
 
         onChangeTitle(event){
@@ -81,6 +83,15 @@ class AdPosting extends Component{
             })
         }
 
+        onChangeProductImageOne(event){
+            console.log(event.target.files[0]);
+            const data = new FormData(event.target.files[0]);
+            console.log(data);
+            this.setState({
+                productImage: data
+            })
+        }
+
         onSubmitAd(e){
             console.log("testing onSubmitAd function");
                 fetch('http://localhost:3001/post/adpost',{
@@ -97,7 +108,7 @@ class AdPosting extends Component{
                         description: this.state.description,
                         sellerName: this.state.sellerName,
                         soldCity: this.state.soldCity,
-                        phoneNum: this.state.phoneNum
+                        phoneNum: this.state.phoneNum,
                       }),
                 }).then(res => res.json())
                 .then(json => {
@@ -113,7 +124,7 @@ class AdPosting extends Component{
                             description: '',
                             sellerName: '',
                             soldCity: '',
-                            phoneNum: ''
+                            phoneNum: '',
                         })
                     }
                     else{
@@ -137,7 +148,7 @@ class AdPosting extends Component{
                             ) : (null)
                     }
                         <h3>Post Your Ad</h3>
-                        <form enctype="multipart/form-data">
+                        <form encType="multipart/form-data">
                             <div className="form-group"></div>
                             <div className="form-group">
                                 <label>Title</label>
@@ -147,14 +158,6 @@ class AdPosting extends Component{
                                 onChange={this.onChangeTitle}
                                 />
                             </div>
-                            {/* <div className="form-group">
-                                <label>Category</label>
-                                <input type="text" 
-                                className="form-control" 
-                                value={this.state.category}
-                                onChange={this.onChangeCategory}
-                                />
-                            </div> */}
                             <div className="form-group">
                                 <label>Category</label>
                                 <select value={this.state.category} onChange={this.onChangeCategory} className="form-control">
@@ -180,14 +183,6 @@ class AdPosting extends Component{
                                 onChange={this.onChangeModel}
                                 />
                             </div>
-                            {/* <div className="form-group">
-                                <label>Condition</label>
-                                <input type="text" 
-                                className="form-control" 
-                                value={this.state.condition}
-                                onChange={this.onChangeCondition}
-                                />
-                            </div> */}
                             <div className="form-group">
                                 <label>Condition</label>
                                 <select value={this.state.condition} onChange={this.onChangeCondition} className="form-control">
@@ -215,12 +210,14 @@ class AdPosting extends Component{
                                 </textarea>
                             </div>
                             <div className="image-margin">
-                                <div className="">
+                                {/* <div className="">
                                     <div className="form-group">
                                         <label>Image 1</label>
-                                        <input type="file" className="form-control"/>
+                                        <input type="file" 
+                                        onChange={this.onChangeProductImageOne} 
+                                        className="form-control"/>
                                     </div>
-                                </div>
+                                </div> */}
                                 {/* <div className="">
                                     <div className="form-group">
                                         <label>Image 2</label>

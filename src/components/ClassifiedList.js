@@ -31,7 +31,14 @@ class ClassifiedList extends Component{
         })
     }
 
+    
+
     render(){
+
+        const mrgCategoryCenter = {
+            marginRight: 'auto',
+            marginLeft: 'auto' 
+        }
 
         const {ads, isLoading} = this.state;
 
@@ -46,7 +53,7 @@ class ClassifiedList extends Component{
             return(
                 <div>
                     <h4>Total ads: {ads.length}</h4>
-                    <table>
+                    <table style={mrgCategoryCenter}>
                 <tbody>
                     <tr>
                         <td className="text-center">
@@ -89,8 +96,6 @@ class ClassifiedList extends Component{
                                 </div>
                             </Link>
                         </td>
-                    </tr>
-                    <tr>
                         <td className="text-center">
                             <Link to={{pathname: '/view-category-ads'}}>
                                 <div>
@@ -131,8 +136,6 @@ class ClassifiedList extends Component{
                                 </div>
                             </Link>
                         </td>
-                    </tr>
-                    <tr>
                         <td className="text-center">
                             <Link to={{pathname: '/view-category-ads'}}>
                                 <div>
