@@ -85,16 +85,16 @@ router.post('/adpost', upload.single('productImage') ,function(req, res, next){
     // create new post
     
     const newPost = new AdPost();
-    newPost.title = req.body.title;
-    newPost.category = req.body.category;
-    newPost.model = req.body.model;
-    newPost.condition = req.body.condition;
-    newPost.price = req.body.price;
-    newPost.description = req.body.description;
-    newPost.sellerName = req.body.sellerName;
-    newPost.soldCity = req.body.soldCity;
-    newPost.phoneNum = req.body.phoneNum;
-    // newPost.productImage = req.file.path;
+    // newPost.title = req.body.title;
+    // newPost.category = req.body.category;
+    // newPost.model = req.body.model;
+    // newPost.condition = req.body.condition;
+    // newPost.price = req.body.price;
+    // newPost.description = req.body.description;
+    // newPost.sellerName = req.body.sellerName;
+    // newPost.soldCity = req.body.soldCity;
+    // newPost.phoneNum = req.body.phoneNum;
+    newPost.productImage = req.file.path;
     newPost.save((err, post) => {
         if(err){
             return res.send({

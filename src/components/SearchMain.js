@@ -27,7 +27,7 @@ class SearchMain extends Component{
         this.setState({ selectedOption });
         console.log(`Option selected:`, selectedOption);
       }
-      
+
     render(){
         return(
             <div className="container">

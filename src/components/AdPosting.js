@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import '../styles/add-posting.css'
+import '../styles/add-posting.css';
+// import axios from 'axios';
+const axios = require('axios');
 // import { constants } from 'zlib';
 
 
@@ -15,126 +17,138 @@ class AdPosting extends Component{
         sellerName: '',
         soldCity: '',
         phoneNum: '',
-        productImage: ''
+        productImage: null
     }
-        onChangeTitle = this.onChangeTitle.bind(this);
-        onChangeCategory = this.onChangeCategory.bind(this);
-        onChangeModel = this.onChangeModel.bind(this);
-        onChangeCondition = this.onChangeCondition.bind(this);
-        onChangePrice = this.onChangePrice.bind(this);
-        onChangeDescription = this.onChangeDescription.bind(this);
-        onChangeSellerName = this.onChangeSellerName.bind(this);
-        onChangeCity = this.onChangeCity.bind(this);
-        onChangePhoneNum = this.onChangePhoneNum.bind(this);
+        // onChangeTitle = this.onChangeTitle.bind(this);
+        // onChangeCategory = this.onChangeCategory.bind(this);
+        // onChangeModel = this.onChangeModel.bind(this);
+        // onChangeCondition = this.onChangeCondition.bind(this);
+        // onChangePrice = this.onChangePrice.bind(this);
+        // onChangeDescription = this.onChangeDescription.bind(this);
+        // onChangeSellerName = this.onChangeSellerName.bind(this);
+        // onChangeCity = this.onChangeCity.bind(this);
+        // onChangePhoneNum = this.onChangePhoneNum.bind(this);
         onChangeProductImageOne = this.onChangeProductImageOne.bind(this);
         onSubmitAd = this.onSubmitAd.bind(this);
 
-        onChangeTitle(event){
-            this.setState({
-                title : event.target.value,
-            });
-        }
+        // onChangeTitle(event){
+        //     this.setState({
+        //         title : event.target.value,
+        //     });
+        // }
 
-        onChangeCategory(event){
-            this.setState({
-                category: event.target.value,
-            });
-        }
+        // onChangeCategory(event){
+        //     this.setState({
+        //         category: event.target.value,
+        //     });
+        // }
 
-        onChangeModel(event){
-            this.setState({
-                model: event.target.value,
-            })
-        }
+        // onChangeModel(event){
+        //     this.setState({
+        //         model: event.target.value,
+        //     })
+        // }
 
-        onChangePrice(event){
-            this.setState({
-                price: event.target.value,
-            })
-        }
+        // onChangePrice(event){
+        //     this.setState({
+        //         price: event.target.value,
+        //     })
+        // }
 
-        onChangeCondition(event){
-            this.setState({
-                condition: event.target.value,
-            })
-        }
+        // onChangeCondition(event){
+        //     this.setState({
+        //         condition: event.target.value,
+        //     })
+        // }
 
-        onChangeDescription(event){
-            this.setState({
-                description: event.target.value,
-            })
-        }
+        // onChangeDescription(event){
+        //     this.setState({
+        //         description: event.target.value,
+        //     })
+        // }
 
-        onChangeSellerName(event){
-            this.setState({
-                sellerName: event.target.value,
-            })
-        }
+        // onChangeSellerName(event){
+        //     this.setState({
+        //         sellerName: event.target.value,
+        //     })
+        // }
 
-        onChangeCity(event){
-            this.setState({
-                soldCity: event.target.value,
-            })
-        }
+        // onChangeCity(event){
+        //     this.setState({
+        //         soldCity: event.target.value,
+        //     })
+        // }
 
-        onChangePhoneNum(event){
-            this.setState({
-                phoneNum: event.target.value,
-            })
-        }
+        // onChangePhoneNum(event){
+        //     this.setState({
+        //         phoneNum: event.target.value,
+        //     })
+        // }
 
         onChangeProductImageOne(event){
             console.log(event.target.files[0]);
-            const data = new FormData(event.target.files[0]);
-            console.log(data);
             this.setState({
-                productImage: data
-            })
+                productImage: event.target.files[0]
+            });
         }
 
         onSubmitAd(e){
-            console.log("testing onSubmitAd function");
-                fetch('http://localhost:3001/post/adpost',{
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                      },
-                      body: JSON.stringify({
-                        title: this.state.title,
-                        category: this.state.category,
-                        model: this.state.model,
-                        condition: this.state.condition,
-                        price: this.state.price,
-                        description: this.state.description,
-                        sellerName: this.state.sellerName,
-                        soldCity: this.state.soldCity,
-                        phoneNum: this.state.phoneNum,
-                      }),
-                }).then(res => res.json())
-                .then(json => {
-                    console.log('json', json)
-                    if(json.success){
-                        this.setState({
-                            adPostError: json.message,
-                            title: '',
-                            category: '',
-                            model: '',
-                            condition: '',
-                            price: '',
-                            description: '',
-                            sellerName: '',
-                            soldCity: '',
-                            phoneNum: '',
-                        })
-                    }
-                    else{
-                        this.setState({
-                            adPostError: json.message
-                        });
-                    }
-                })
+            console.log("testing onSubmitAd function ");
+            const formData = new FormData();
+            formData.append('productImageOne',this.state.productImage);
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            };
+            axios.post("http://localhost:3001/post/adpost",formData,config)
+            .then((response) => {
+                console.log("The file is successfully uploaded");
+            }).catch((error) => {
+            });
             e.preventDefault();
-        }
+            };
+
+            //     fetch('http://localhost:3001/post/adpost',{
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //           },
+            //           body: JSON.stringify({
+            //             title: this.state.title,
+            //             category: this.state.category,
+            //             model: this.state.model,
+            //             condition: this.state.condition,
+            //             price: this.state.price,
+            //             description: this.state.description,
+            //             sellerName: this.state.sellerName,
+            //             soldCity: this.state.soldCity,
+            //             phoneNum: this.state.phoneNum,
+            //           }),
+            //     }).then(res => res.json())
+            //     .then(json => {
+            //         console.log('json', json)
+            //         if(json.success){
+            //             this.setState({
+            //                 adPostError: json.message,
+            //                 title: '',
+            //                 category: '',
+            //                 model: '',
+            //                 condition: '',
+            //                 price: '',
+            //                 description: '',
+            //                 sellerName: '',
+            //                 soldCity: '',
+            //                 phoneNum: '',
+            //             })
+            //         }
+            //         else{
+            //             this.setState({
+            //                 adPostError: json.message
+            //             });
+            //         }
+            //     })
+        
 
     render(){
         return(
@@ -150,7 +164,7 @@ class AdPosting extends Component{
                         <h3>Post Your Ad</h3>
                         <form encType="multipart/form-data">
                             <div className="form-group"></div>
-                            <div className="form-group">
+                            {/* <div className="form-group">
                                 <label>Title</label>
                                 <input type="text" 
                                 className="form-control" 
@@ -208,16 +222,17 @@ class AdPosting extends Component{
                                 value={this.state.description} 
                                 onChange={this.onChangeDescription}>
                                 </textarea>
-                            </div>
+                            </div> */}
                             <div className="image-margin">
-                                {/* <div className="">
+                                <div className="">
                                     <div className="form-group">
                                         <label>Image 1</label>
-                                        <input type="file" 
+                                        <input type="file"
+                                        name="productImageOne" 
                                         onChange={this.onChangeProductImageOne} 
                                         className="form-control"/>
                                     </div>
-                                </div> */}
+                                </div>
                                 {/* <div className="">
                                     <div className="form-group">
                                         <label>Image 2</label>
@@ -232,7 +247,7 @@ class AdPosting extends Component{
                                 </div> */}
                             </div>
                             <span className="text-danger"></span>
-                            <div className="divider"></div>
+                            {/* <div className="divider"></div>
                             <div className="form-group">
                                 <h4>Seller Information</h4>
                             </div>
@@ -259,7 +274,7 @@ class AdPosting extends Component{
                                 value={this.state.phoneNum}
                                 onChange={this.onChangePhoneNum}
                                 />
-                            </div>
+                            </div> */}
                             <div className="form-group">
                                 <span className="text-muted">
                                     <small>By clicking Submit you confirm that you have carefully read and understood all the facts, statements and conditions stated in the Terms of Use & Posting Rules of our website to which you unconditionally agree and accept as true and correct and constituting a binding agreement between us.</small>
