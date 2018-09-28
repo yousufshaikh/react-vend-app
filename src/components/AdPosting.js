@@ -95,17 +95,18 @@ class AdPosting extends Component{
         onSubmitAd(e){
             console.log("testing onSubmitAd function ");
             const formData = new FormData();
-            formData.append('productImageOne',this.state.productImage);
+            formData.append('productImage',this.state.productImage);
             const config = {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'content-type': 'multipart/form-data'
                 }
             };
             axios.post("http://localhost:3001/post/adpost",formData,config)
             .then((response) => {
-                console.log("The file is successfully uploaded");
-            }).catch((error) => {
-            });
+                console.log("response", response);
+            }).catch(error => {
+                console.log(error.message);
+              });
             e.preventDefault();
             };
 
@@ -162,7 +163,7 @@ class AdPosting extends Component{
                             ) : (null)
                     }
                         <h3>Post Your Ad</h3>
-                        <form encType="multipart/form-data">
+                        <form>
                             <div className="form-group"></div>
                             {/* <div className="form-group">
                                 <label>Title</label>
@@ -228,7 +229,7 @@ class AdPosting extends Component{
                                     <div className="form-group">
                                         <label>Image 1</label>
                                         <input type="file"
-                                        name="productImageOne" 
+                                        name="productImage" 
                                         onChange={this.onChangeProductImageOne} 
                                         className="form-control"/>
                                     </div>

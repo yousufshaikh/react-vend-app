@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 var multer  = require('multer');
+const path = require("path");
 const User = require('./models/User');
 const UserSession = require('./models/UserSession');
 const signIn = require('./routes/Signin');
@@ -13,6 +14,7 @@ const verify = require('./routes/Verify');
 const adPost = require('./routes/Post');
 const findAds = require('./routes/FindAds');
 const findAd = require('./routes/FindAd');
+
 
 app.use(cors())
 
@@ -37,6 +39,8 @@ app.use('/account', verify);
 app.use('/post',adPost);
 app.use('/adverts', findAds);
 app.use('/adverts',findAd);
+
+
 
 // app.get('/',function(req, res) {
 // 	res.send("App is running on localhost:3001");
