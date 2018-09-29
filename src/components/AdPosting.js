@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../styles/add-posting.css';
-// import axios from 'axios';
 const axios = require('axios');
 // import { constants } from 'zlib';
 
@@ -19,8 +18,8 @@ class AdPosting extends Component{
         phoneNum: '',
         productImage: null
     }
-        // onChangeTitle = this.onChangeTitle.bind(this);
-        // onChangeCategory = this.onChangeCategory.bind(this);
+        onChangeTitle = this.onChangeTitle.bind(this);
+        onChangeCategory = this.onChangeCategory.bind(this);
         // onChangeModel = this.onChangeModel.bind(this);
         // onChangeCondition = this.onChangeCondition.bind(this);
         // onChangePrice = this.onChangePrice.bind(this);
@@ -31,17 +30,17 @@ class AdPosting extends Component{
         onChangeProductImageOne = this.onChangeProductImageOne.bind(this);
         onSubmitAd = this.onSubmitAd.bind(this);
 
-        // onChangeTitle(event){
-        //     this.setState({
-        //         title : event.target.value,
-        //     });
-        // }
+        onChangeTitle(event){
+            this.setState({
+                title : event.target.value,
+            });
+        }
 
-        // onChangeCategory(event){
-        //     this.setState({
-        //         category: event.target.value,
-        //     });
-        // }
+        onChangeCategory(event){
+            this.setState({
+                category: event.target.value,
+            });
+        }
 
         // onChangeModel(event){
         //     this.setState({
@@ -95,6 +94,8 @@ class AdPosting extends Component{
         onSubmitAd(e){
             console.log("testing onSubmitAd function ");
             const formData = new FormData();
+            formData.append('title',this.state.title);
+            formData.append('category', this.state.category);
             formData.append('productImage',this.state.productImage);
             const config = {
                 headers: {
@@ -107,49 +108,51 @@ class AdPosting extends Component{
             }).catch(error => {
                 console.log(error.message);
               });
-            e.preventDefault();
-            };
+            
 
-            //     fetch('http://localhost:3001/post/adpost',{
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //           },
-            //           body: JSON.stringify({
-            //             title: this.state.title,
-            //             category: this.state.category,
-            //             model: this.state.model,
-            //             condition: this.state.condition,
-            //             price: this.state.price,
-            //             description: this.state.description,
-            //             sellerName: this.state.sellerName,
-            //             soldCity: this.state.soldCity,
-            //             phoneNum: this.state.phoneNum,
-            //           }),
-            //     }).then(res => res.json())
-            //     .then(json => {
-            //         console.log('json', json)
-            //         if(json.success){
-            //             this.setState({
-            //                 adPostError: json.message,
-            //                 title: '',
-            //                 category: '',
-            //                 model: '',
-            //                 condition: '',
-            //                 price: '',
-            //                 description: '',
-            //                 sellerName: '',
-            //                 soldCity: '',
-            //                 phoneNum: '',
-            //             })
-            //         }
-            //         else{
-            //             this.setState({
-            //                 adPostError: json.message
-            //             });
-            //         }
-            //     })
-        
+                // fetch('http://localhost:3001/post/adpost',{
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json'
+                //       },
+                //       body: JSON.stringify({
+                //         title: this.state.title,
+                //         category: this.state.category,
+                //         model: this.state.model,
+                //         condition: this.state.condition,
+                //         price: this.state.price,
+                //         description: this.state.description,
+                //         sellerName: this.state.sellerName,
+                //         soldCity: this.state.soldCity,
+                //         phoneNum: this.state.phoneNum,
+                //         productImage: this.state.productImage
+                //       }),
+                // }).then(res => res.json())
+                // .then(json => {
+                //     console.log('json', json)
+                //     if(json.success){
+                //         this.setState({
+                //             adPostError: json.message,
+                //             title: '',
+                //             category: '',
+                //             model: '',
+                //             condition: '',
+                //             price: '',
+                //             description: '',
+                //             sellerName: '',
+                //             soldCity: '',
+                //             phoneNum: '',
+                //             productImage:''
+                //         })
+                //     }
+                //     else{
+                //         this.setState({
+                //             adPostError: json.message
+                //         });
+                //     }
+                // })
+            e.preventDefault();
+        };
 
     render(){
         return(
@@ -163,9 +166,9 @@ class AdPosting extends Component{
                             ) : (null)
                     }
                         <h3>Post Your Ad</h3>
-                        <form>
+                        <form encType="multipart/form-data">
                             <div className="form-group"></div>
-                            {/* <div className="form-group">
+                            <div className="form-group">
                                 <label>Title</label>
                                 <input type="text" 
                                 className="form-control" 
@@ -190,6 +193,7 @@ class AdPosting extends Component{
                                     <option value="Services">Services</option>
                                 </select>
                             </div>
+                            {/*
                             <div className="form-group">
                                 <label>Model</label>
                                 <input type="text" 
@@ -248,8 +252,8 @@ class AdPosting extends Component{
                                 </div> */}
                             </div>
                             <span className="text-danger"></span>
-                            {/* <div className="divider"></div>
-                            <div className="form-group">
+                            <div className="divider"></div>
+                            {/* <div className="form-group">
                                 <h4>Seller Information</h4>
                             </div>
                             <div className="form-group">
