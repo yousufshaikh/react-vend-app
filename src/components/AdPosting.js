@@ -20,13 +20,13 @@ class AdPosting extends Component{
     }
         onChangeTitle = this.onChangeTitle.bind(this);
         onChangeCategory = this.onChangeCategory.bind(this);
-        // onChangeModel = this.onChangeModel.bind(this);
-        // onChangeCondition = this.onChangeCondition.bind(this);
-        // onChangePrice = this.onChangePrice.bind(this);
-        // onChangeDescription = this.onChangeDescription.bind(this);
-        // onChangeSellerName = this.onChangeSellerName.bind(this);
-        // onChangeCity = this.onChangeCity.bind(this);
-        // onChangePhoneNum = this.onChangePhoneNum.bind(this);
+        onChangeModel = this.onChangeModel.bind(this);
+        onChangeCondition = this.onChangeCondition.bind(this);
+        onChangePrice = this.onChangePrice.bind(this);
+        onChangeDescription = this.onChangeDescription.bind(this);
+        onChangeSellerName = this.onChangeSellerName.bind(this);
+        onChangeCity = this.onChangeCity.bind(this);
+        onChangePhoneNum = this.onChangePhoneNum.bind(this);
         onChangeProductImageOne = this.onChangeProductImageOne.bind(this);
         onSubmitAd = this.onSubmitAd.bind(this);
 
@@ -42,47 +42,47 @@ class AdPosting extends Component{
             });
         }
 
-        // onChangeModel(event){
-        //     this.setState({
-        //         model: event.target.value,
-        //     })
-        // }
+        onChangeModel(event){
+            this.setState({
+                model: event.target.value,
+            })
+        }
 
-        // onChangePrice(event){
-        //     this.setState({
-        //         price: event.target.value,
-        //     })
-        // }
+        onChangePrice(event){
+            this.setState({
+                price: event.target.value,
+            })
+        }
 
-        // onChangeCondition(event){
-        //     this.setState({
-        //         condition: event.target.value,
-        //     })
-        // }
+        onChangeCondition(event){
+            this.setState({
+                condition: event.target.value,
+            })
+        }
 
-        // onChangeDescription(event){
-        //     this.setState({
-        //         description: event.target.value,
-        //     })
-        // }
+        onChangeDescription(event){
+            this.setState({
+                description: event.target.value,
+            })
+        }
 
-        // onChangeSellerName(event){
-        //     this.setState({
-        //         sellerName: event.target.value,
-        //     })
-        // }
+        onChangeSellerName(event){
+            this.setState({
+                sellerName: event.target.value,
+            })
+        }
 
-        // onChangeCity(event){
-        //     this.setState({
-        //         soldCity: event.target.value,
-        //     })
-        // }
+        onChangeCity(event){
+            this.setState({
+                soldCity: event.target.value,
+            })
+        }
 
-        // onChangePhoneNum(event){
-        //     this.setState({
-        //         phoneNum: event.target.value,
-        //     })
-        // }
+        onChangePhoneNum(event){
+            this.setState({
+                phoneNum: event.target.value,
+            })
+        }
 
         onChangeProductImageOne(event){
             console.log(event.target.files[0]);
@@ -96,6 +96,13 @@ class AdPosting extends Component{
             const formData = new FormData();
             formData.append('title',this.state.title);
             formData.append('category', this.state.category);
+            formData.append('model', this.state.model);
+            formData.append('condition', this.state.condition);
+            formData.append('price', this.state.price);
+            formData.append('description', this.state.description);
+            formData.append('sellerName', this.state.sellerName);
+            formData.append('soldCity', this.state.soldCity);
+            formData.append('phoneNum', this.state.phoneNum);
             formData.append('productImage',this.state.productImage);
             const config = {
                 headers: {
@@ -104,6 +111,17 @@ class AdPosting extends Component{
             };
             axios.post("http://localhost:3001/post/adpost",formData,config)
             .then((response) => {
+                this.setState({
+                            title: '',
+                            category: '',
+                            model: '',
+                            condition: '',
+                            price: '',
+                            description: '',
+                            sellerName: '',
+                            soldCity: '',
+                            phoneNum: ''
+                })
                 console.log("response", response);
             }).catch(error => {
                 console.log(error.message);
@@ -133,16 +151,16 @@ class AdPosting extends Component{
                 //     if(json.success){
                 //         this.setState({
                 //             adPostError: json.message,
-                //             title: '',
-                //             category: '',
-                //             model: '',
-                //             condition: '',
-                //             price: '',
-                //             description: '',
-                //             sellerName: '',
-                //             soldCity: '',
-                //             phoneNum: '',
-                //             productImage:''
+                            // title: '',
+                            // category: '',
+                            // model: '',
+                            // condition: '',
+                            // price: '',
+                            // description: '',
+                            // sellerName: '',
+                            // soldCity: '',
+                            // phoneNum: '',
+                            // productImage:''
                 //         })
                 //     }
                 //     else{
@@ -193,7 +211,6 @@ class AdPosting extends Component{
                                     <option value="Services">Services</option>
                                 </select>
                             </div>
-                            {/*
                             <div className="form-group">
                                 <label>Model</label>
                                 <input type="text" 
@@ -227,7 +244,7 @@ class AdPosting extends Component{
                                 value={this.state.description} 
                                 onChange={this.onChangeDescription}>
                                 </textarea>
-                            </div> */}
+                            </div>
                             <div className="image-margin">
                                 <div className="">
                                     <div className="form-group">
@@ -253,7 +270,7 @@ class AdPosting extends Component{
                             </div>
                             <span className="text-danger"></span>
                             <div className="divider"></div>
-                            {/* <div className="form-group">
+                            <div className="form-group">
                                 <h4>Seller Information</h4>
                             </div>
                             <div className="form-group">
@@ -279,7 +296,7 @@ class AdPosting extends Component{
                                 value={this.state.phoneNum}
                                 onChange={this.onChangePhoneNum}
                                 />
-                            </div> */}
+                            </div>
                             <div className="form-group">
                                 <span className="text-muted">
                                     <small>By clicking Submit you confirm that you have carefully read and understood all the facts, statements and conditions stated in the Terms of Use & Posting Rules of our website to which you unconditionally agree and accept as true and correct and constituting a binding agreement between us.</small>

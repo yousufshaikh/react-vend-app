@@ -11,37 +11,37 @@ const AdPostSchema = new Schema({
         type: String,
         default: ''
     },
-    // model:{
-    //         type: String,
-    //         default: ''
-    // },
-    // condition:{
-    //     type: String,
-    //     default: ''
-    // },
-    // price:{
-    //     type: String,
-    //     default: ''
-    // },
-    // description:{
-    //     type: String,
-    //     default: ''
-    // },
-    // sellerName:{
-    //     type: String,
-    //     default:''
-    // },
-    // soldCity:{
-    //     type: String,
-    //     default:''
-    // },
-    // phoneNum:{
-    //     type: Number,
-    //     default:''
-    // },
+    model:{
+            type: String,
+            default: ''
+    },
+    condition:{
+        type: String,
+        default: ''
+    },
+    price:{
+        type: String,
+        default: ''
+    },
+    description:{
+        type: String,
+        default: ''
+    },
+    sellerName:{
+        type: String,
+        default:''
+    },
+    soldCity:{
+        type: String,
+        default:''
+    },
+    phoneNum:{
+        type: Number,
+        default:''
+    },
     productImage:{
         type: String,
-        // required: true
+        required: true
     },
     isDeleted: {
         type: Boolean,
