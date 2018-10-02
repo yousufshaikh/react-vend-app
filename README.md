@@ -6,7 +6,7 @@
  * <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>
  
 
-To get stated with this app, follow the instructions below.
+To get started with this app, follow the instructions below.
 
 * git clone https://github.com/yousufshaikh/react-vend-app.git
 * open in <a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> 
