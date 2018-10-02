@@ -92,7 +92,7 @@ class AdPosting extends Component{
         }
 
         onSubmitAd(e){
-            console.log("testing onSubmitAd function ");
+            console.log("testing onSubmitAd function");
             const formData = new FormData();
             formData.append('title',this.state.title);
             formData.append('category', this.state.category);
@@ -196,7 +196,9 @@ class AdPosting extends Component{
                             </div>
                             <div className="form-group">
                                 <label>Category</label>
-                                <select value={this.state.category} onChange={this.onChangeCategory} className="form-control">
+                                <select value={this.state.category} 
+                                onChange={this.onChangeCategory} 
+                                className="form-control">
                                     <option value="">Select category</option>
                                     <option value="Properties">Properties</option>
                                     <option value="Cars">Cars</option>

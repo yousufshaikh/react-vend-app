@@ -40,6 +40,8 @@ const AdPostSchema = new Schema({
         default:''
     },
     productImage:{
+        // data: Buffer, 
+        // contentType: String    
         type: String,
         required: true
     },
